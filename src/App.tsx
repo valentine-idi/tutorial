@@ -1,15 +1,14 @@
-import { useState } from 'react'
-import Message from './Components/Message'
-import './App.css'
+import { useState } from "react";
+import DisplayAlert from "./components/DisplayAlert";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [ButtonType] = useState("link");
   return (
     <div className="App">
-      <Message />
+      <DisplayAlert />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,19 +1,32 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 function Message(){
-    var [counter, setCounter] = useState(0);
+    const [data, setData] = useState({name: "", isNameValid: false});
 
-    const increaseCounter = ()=>{
+    const setInputValue = (e: { target: any; })=>{
+        const newData = {...data};
+        newData.name = e.target.value;
+        setData(newData)
+    }
 
-        var number = counter;
-        number += 1;
-        setCounter(number);
+    const greet = ()=>{
+        const newData = {...data};
+      
+        if(!newData.name) return
+        newData.isNameValid = true;
+
+        setData(newData)
     }
 
     return (
         <div>
-            <div>{counter}</div>
-            <button onClick={()=>increaseCounter()}>Increase Count</button>
+            <div>
+                <input name="name" value={data.name} onChange={setInputValue}/> 
+                <Button onClick={greet}>SetName</Button>
+            </div>
+            
+            {data.isNameValid && <div>Hello {data.name}</div>}
         </div>
     
     )
