@@ -1,18 +1,9 @@
 import { useState } from "react";
-import Like from "./components/Like";
+import Playground from "./components/Playground";
 import "./App.css";
 
 function App() {
-  const [liked, setLiked] = useState(false);
-  const onClick = () => {
-    setLiked(!liked);
-  };
-
-  return (
-    <div className="App">
-      <Like liked={liked} onClick={onClick} />
-    </div>
-  );
+  return <div className="App"></div>;
 }
 
 export default App;
