@@ -1,12 +1,16 @@
 import { useState } from "react";
-import DisplayAlert from "./components/DisplayAlert";
+import Like from "./components/Like";
 import "./App.css";
 
 function App() {
-  const [ButtonType] = useState("link");
+  const [liked, setLiked] = useState(false);
+  const onClick = () => {
+    setLiked(!liked);
+  };
+
   return (
     <div className="App">
-      <DisplayAlert />
+      <Like liked={liked} onClick={onClick} />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Alert, Button } from "react-bootstrap";
+import MyAlert from "./MyAlert";
+import MyButton from "./MyButton/MyButton";
 
 const DisplayAlert = () => {
   const [displayAlert, setHandleAlert] = useState(false);
@@ -7,12 +9,16 @@ const DisplayAlert = () => {
   return (
     <>
       {displayAlert && (
-        <Alert onClose={() => setHandleAlert(false)} dismissible>
-          My Alert
-        </Alert>
+        <MyAlert
+          variant="danger"
+          dismissable={true}
+          onClose={() => setHandleAlert(false)}
+        >
+          My Alert{" "}
+        </MyAlert>
       )}
 
-      <Button onClick={() => setHandleAlert(true)}>My Button</Button>
+      <MyButton onClick={() => setHandleAlert(true)}>My Button</MyButton>
     </>
   );
 };
