@@ -1,0 +1,27 @@
+.form{
+    width: 95%;
+    max-width: 700px;
+    min-width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    color: #9e9c9a;
+}
+
+.heading{
+    text-align: center;
+    font-size: 30px;
+}
+
+.error{
+    text-align: center;
+    color: #fd6117;
+}
+
+.submit{
+    padding-top: 20px;
+}
