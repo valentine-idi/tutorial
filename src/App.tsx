@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Playground from "./components/Playground";
-import MyForm from "./components/MyForm";
+import HisForm from "./components/HisForm";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <MyForm />
+      <HisForm />
     </div>
   );
 }
