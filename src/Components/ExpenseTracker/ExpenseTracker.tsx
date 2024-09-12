@@ -17,7 +17,7 @@ function ExpenseTracker() {
 
   const [currentCategory, setCurrentCategory] = useState("All categories");
 
-  const categories = ["Groceries", "Utilities", "Entertainment"];
+  const categories = ["Groceries", "Utilities", "Entertainment"] as const;
 
   const mySchema = z.object({
     description: z.string().min(3).max(50),
@@ -33,6 +33,7 @@ function ExpenseTracker() {
     register,
     handleSubmit,
     formState: { errors, isValid },
+    reset,
   } = useForm<FormData>({ resolver: zodResolver(mySchema) });
 
   const newData =
@@ -64,7 +65,12 @@ function ExpenseTracker() {
 
   return (
     <div className={styles.wrapper}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        onSubmit={handleSubmit((data) => {
+          onSubmit(data);
+          reset();
+        })}
+      >
         <Form.Group className={styles.form}>
           <Form.Label>Description</Form.Label>
           <Form.Control type="text" size="lg" {...register("description")} />
